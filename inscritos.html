@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Inscrição Especial</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+    }
+    .banner {
+      width: 100%;
+      max-height: 350px;
+      object-fit: cover;
+    }
+    .form-container {
+      padding: 20px;
+    }
+    #whatsapp-button {
+      display: none; /* Oculto por padrão */
+      margin: 30px auto;
+      padding: 15px 25px;
+      font-size: 16px;
+      background-color: #25D366;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    #whatsapp-button:hover {
+      background-color: #1ebe5d;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Banner no topo -->
+  <img src="imagem/fundo.jpeg" alt="Banner"  class="banner">
+
+  <!-- Formulário Google Forms -->
+  <div class="form-container">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdlfe0Y-fhMVxF6aUW0Hb0UUVrOeKlgXl512dLSL-PWF5JL3Q/viewform?embedded=true" width="840" height="2157" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
+    <!-- Botão do WhatsApp -->
+    <a id="whatsapp-button" href="https://chat.whatsapp.com/EMw6u8hy7QkCwWfyZrWOpj" target="_blank">Entrar no grupo</a>
+  </div>
+
+  <script>
+    // Detectar quando o formulário foi enviado com sucesso
+    const iframe = document.getElementById('formulario');
+    iframe.onload = function () {
+      const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+      const submitted = innerDoc.querySelector('.freebirdFormviewerViewResponseConfirmationMessage');
+      if (submitted) {
+        document.getElementById('whatsapp-button').style.display = 'inline-block';
+      }
+    };
+  </script>
+
+</body>
+</html>
