@@ -9,18 +9,35 @@
       text-align: center;
       margin: 0;
       padding: 0;
-      background-color: #f7f7f7;
+      background-color: rgb(235, 234, 233);
     }
+
     .banner {
-      width: 100%;
-      max-height: 350px;
-      object-fit: cover;
+      width: 100vw;
+      height: 300px;
+      background-image: url('imagem/fundo.jpeg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-color: #807e7f;
     }
+
     .form-container {
       padding: 20px;
     }
+
+    .aviso {
+      background-color: #ffd700;
+      color: #000;
+      padding: 15px;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      border-radius: 5px;
+    }
+
     #whatsapp-button {
-      display: none; /* Oculto por padrão */
+      display: none;
       margin: 30px auto;
       padding: 15px 25px;
       font-size: 16px;
@@ -31,6 +48,7 @@
       cursor: pointer;
       text-decoration: none;
     }
+
     #whatsapp-button:hover {
       background-color: #1ebe5d;
     }
@@ -39,19 +57,25 @@
 <body>
 
   <!-- Banner no topo -->
-  <img src="imagem/fundo.jpeg" alt="Banner"  class="banner">
+  <div class="banner"></div>
 
   <!-- Formulário Google Forms -->
   <div class="form-container">
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdlfe0Y-fhMVxF6aUW0Hb0UUVrOeKlgXl512dLSL-PWF5JL3Q/viewform?embedded=true" width="840" height="2157" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
+    
+    <!-- Aviso -->
+    <div class="aviso">
+      📌 Inscrições abertas até 30 de maio ou enquanto houver vagas!
+    </div>
+
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdlfe0Y-fhMVxF6aUW0Hb0UUVrOeKlgXl512dLSL-PWF5JL3Q/viewform?embedded=true" width="840" height="2657" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
+
     <!-- Botão do WhatsApp -->
     <a id="whatsapp-button" href="https://chat.whatsapp.com/EMw6u8hy7QkCwWfyZrWOpj" target="_blank">Entrar no grupo</a>
   </div>
 
   <script>
-    // Detectar quando o formulário foi enviado com sucesso
     const iframe = document.getElementById('formulario');
-    iframe.onload = function () {
+    iframe?.onload = function () {
       const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
       const submitted = innerDoc.querySelector('.freebirdFormviewerViewResponseConfirmationMessage');
       if (submitted) {
