@@ -67,7 +67,8 @@
       📌 Inscrições abertas até 30 de maio ou enquanto houver vagas!
     </div>
 
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdlfe0Y-fhMVxF6aUW0Hb0UUVrOeKlgXl512dLSL-PWF5JL3Q/viewform?embedded=true" width="840" height="2657" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
+    <!-- ADICIONADO ID ao iframe -->
+    <iframe id="formulario" src="https://docs.google.com/forms/d/e/1FAIpQLSdlfe0Y-fhMVxF6aUW0Hb0UUVrOeKlgXl512dLSL-PWF5JL3Q/viewform?embedded=true" width="840" height="2657" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
 
     <!-- Botão do WhatsApp -->
     <a id="whatsapp-button" href="https://chat.whatsapp.com/EMw6u8hy7QkCwWfyZrWOpj" target="_blank">Entrar no grupo</a>
@@ -75,13 +76,23 @@
 
   <script>
     const iframe = document.getElementById('formulario');
-    iframe?.onload = function () {
-      const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
-      const submitted = innerDoc.querySelector('.freebirdFormviewerViewResponseConfirmationMessage');
-      if (submitted) {
-        document.getElementById('whatsapp-button').style.display = 'inline-block';
+
+    // Verifica a confirmação do envio do formulário periodicamente
+    const checkConfirmation = () => {
+      try {
+        const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+        const confirmation = innerDoc.querySelector('.freebirdFormviewerViewResponseConfirmationMessage');
+        if (confirmation) {
+          document.getElementById('whatsapp-button').style.display = 'inline-block';
+          clearInterval(interval); // para de verificar após exibir
+        }
+      } catch (e) {
+        // segurança: pode falhar em alguns navegadores por política de CORS
+        console.warn('Acesso ao iframe restrito. Isso pode ocorrer dependendo do navegador.');
       }
     };
+
+    const interval = setInterval(checkConfirmation, 1000); // verifica a cada 1s
   </script>
 
 </body>
