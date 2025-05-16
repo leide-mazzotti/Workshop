@@ -13,15 +13,14 @@
     }
 
     .banner {
-  width: 100%;
-  height: 300px;
-  background-image: url('imagem/banner.jpeg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-color: #1b1610;
-}
-
+      width: 100%;
+      height: 300px;
+      background-image: url('imagem/banner.jpeg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-color: #1b1610;
+    }
 
     .form-container {
       padding: 20px;
@@ -65,44 +64,28 @@
       box-shadow: 0 0 5px rgba(0,0,0,0.2);
     }
 
-    #whatsapp-button {
-      margin: 30px auto;
-      padding: 15px 25px;
-      font-size: 16px;
-      background-color: #ccc;
-      color: #666;
-      border: none;
-      border-radius: 5px;
-      text-decoration: none;
-      pointer-events: none;
-      cursor: not-allowed;
-      display: inline-block;
-    }
-
-    #whatsapp-button.ativo {
-      background-color: #25D366;
-      color: white;
-      pointer-events: auto;
-      cursor: pointer;
-    }
-
-    #whatsapp-button.ativo:hover {
-      background-color: #1ebe5d;
-    }
-
     .open-form-button {
       margin-top: 20px;
-      padding: 15px 25px;
+      padding: 20px 40px;
       background-color: #b90b05;
       color: white;
-      font-size: 16px;
+      font-size: 20px;
+      font-weight: bold;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
       cursor: pointer;
     }
 
     .open-form-button:hover {
       background-color: #831203;
+    }
+
+    .rodape {
+      background-color: #1b1610;
+      color: white;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 16px;
     }
   </style>
 </head>
@@ -111,10 +94,8 @@
   <div class="banner"></div>
 
   <div class="form-container">
-    <!-- Botão de abrir o formulário -->
-  
-    </button><div class="aviso">📌 Inscrições abertas até o dia 31/05/2025!</div>
 
+    <div class="aviso">📌 Inscrições abertas até o dia 31/05/2025!</div>
 
     <div class="galeria-imagens">
       <img src="imagem/p1.jpg" alt="Antes e depois">
@@ -123,13 +104,10 @@
       <img src="imagem/p4.jpg" alt="Hidratação Wella">
     </div>
 
-    <!-- Botão de abrir o formulário -->
     <button class="open-form-button" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdlfe0Y-fhMVxF6aUW0Hb0UUVrOeKlgXl512dLSL-PWF5JL3Q/viewform?usp=preview', '_blank')">
-      Faça sua inscrição
+      FAÇA SUA INSCRIÇÃO
     </button>
-  </div>
 
-  
     <div class="descricao-projeto">
       O <strong>Projeto Amor & Cuidado</strong> foi criado para oferecer a você um momento de autocuidado e autoestima.  
       🌟 Escova de excelência, hidratação com produtos <strong>Wella</strong> e uma limpeza de pele renovadora — tudo pensado para que você se sinta valorizada, confiante e linda.  
@@ -137,6 +115,12 @@
       👑 O Studio Leide Mazzotti te convida para viver um dia de princesa nesse momento tão especial.  
       💸 <strong>Saia bela por apenas R$ 89,90!</strong>
     </div>
+  </div>
+
+  <div class="rodape">
+    Studio Leide Mazzotti – Rua Cornélios , 331 – nº04 – Boa Vista do Lobato <br>
+    Telefone: (71) 98739-9072
+  </div>
 
 </body>
 </html>
