@@ -15,11 +15,10 @@
     .banner {
       width: 100vw;
       height: 300px;
-      background-image: url('imagem/fundo.jpeg');
+      background-image: url('imagem/banner.jpeg');
       background-position: center;
       background-repeat: no-repeat;
-      background-size: contain;
-      background-color: #807e7f;
+      background-color: #1b1610;
     }
 
     .form-container {
@@ -27,8 +26,11 @@
     }
 
     .aviso {
-      background-color: #ffd700;
-      color: #000;
+      background-color: #ba8121;
+      margin-top: -20px;
+      color: #ffffff;
+      width: 105%;
+      margin-left: -20px;
       padding: 15px;
       font-size: 20px;
       font-weight: bold;
@@ -36,64 +38,103 @@
       border-radius: 5px;
     }
 
+    .descricao-projeto {
+      font-size: 18px;
+      margin-bottom: 25px;
+      color: #333;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .galeria-imagens {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .galeria-imagens img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    }
+
     #whatsapp-button {
-      display: none;
       margin: 30px auto;
       padding: 15px 25px;
       font-size: 16px;
+      background-color: #ccc;
+      color: #666;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      pointer-events: none;
+      cursor: not-allowed;
+      display: inline-block;
+    }
+
+    #whatsapp-button.ativo {
       background-color: #25D366;
       color: white;
+      pointer-events: auto;
+      cursor: pointer;
+    }
+
+    #whatsapp-button.ativo:hover {
+      background-color: #1ebe5d;
+    }
+
+    .open-form-button {
+      margin-top: 20px;
+      padding: 15px 25px;
+      background-color: #b90b05;
+      color: white;
+      font-size: 16px;
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      text-decoration: none;
     }
 
-    #whatsapp-button:hover {
-      background-color: #1ebe5d;
+    .open-form-button:hover {
+      background-color: #831203;
     }
   </style>
 </head>
 <body>
 
-  <!-- Banner no topo -->
   <div class="banner"></div>
 
-  <!-- Formulário Google Forms -->
   <div class="form-container">
-    
-    <!-- Aviso -->
-    <div class="aviso">
-      📌 Inscrições abertas até 30 de maio ou enquanto houver vagas!
+    <!-- Botão de abrir o formulário -->
+  
+    </button><div class="aviso">📌 Inscrições abertas até o dia 31/05/2025!</div>
+
+
+    <div class="galeria-imagens">
+      <img src="imagem/p1.jpg" alt="Antes e depois">
+      <img src="imagem/p2.jpg" alt="Cabelo escovado">
+      <img src="imagem/p3.jpg" alt="Limpeza de pele">
+      <img src="imagem/p4.jpg" alt="Hidratação Wella">
     </div>
 
-    <!-- ADICIONADO ID ao iframe -->
-    <iframe id="formulario" src="https://docs.google.com/forms/d/e/1FAIpQLSdlfe0Y-fhMVxF6aUW0Hb0UUVrOeKlgXl512dLSL-PWF5JL3Q/viewform?embedded=true" width="840" height="2657" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
-
-    <!-- Botão do WhatsApp -->
-    <a id="whatsapp-button" href="https://chat.whatsapp.com/EMw6u8hy7QkCwWfyZrWOpj" target="_blank">Entrar no grupo</a>
+    <!-- Botão de abrir o formulário -->
+    <button class="open-form-button" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdlfe0Y-fhMVxF6aUW0Hb0UUVrOeKlgXl512dLSL-PWF5JL3Q/viewform?usp=preview', '_blank')">
+      Faça sua inscrição
+    </button>
   </div>
 
-  <script>
-    const iframe = document.getElementById('formulario');
-
-    // Verifica a confirmação do envio do formulário periodicamente
-    const checkConfirmation = () => {
-      try {
-        const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
-        const confirmation = innerDoc.querySelector('.freebirdFormviewerViewResponseConfirmationMessage');
-        if (confirmation) {
-          document.getElementById('whatsapp-button').style.display = 'inline-block';
-          clearInterval(interval); // para de verificar após exibir
-        }
-      } catch (e) {
-        // segurança: pode falhar em alguns navegadores por política de CORS
-        console.warn('Acesso ao iframe restrito. Isso pode ocorrer dependendo do navegador.');
-      }
-    };
-
-    const interval = setInterval(checkConfirmation, 1000); // verifica a cada 1s
-  </script>
+  
+    <div class="descricao-projeto">
+      O <strong>Projeto Amor & Cuidado</strong> foi criado para oferecer a você um momento de autocuidado e autoestima.  
+      🌟 Escova de excelência, hidratação com produtos <strong>Wella</strong> e uma limpeza de pele renovadora — tudo pensado para que você se sinta valorizada, confiante e linda.  
+      <br><br>
+      👑 O Studio Leide Mazzotti te convida para viver um dia de princesa nesse momento tão especial.  
+      💸 <strong>Saia bela por apenas R$ 89,90!</strong>
+    </div>
 
 </body>
 </html>
